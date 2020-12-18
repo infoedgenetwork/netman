@@ -1,0 +1,467 @@
+2020-12-11 11:23:16 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'user' already exists in C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\db\Command.php:1299
+Stack trace:
+#0 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\db\Command.php(1299): PDOStatement->execute()
+#1 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\db\Command.php(1099): yii\db\Command->internalExecute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\db\Migration.php(323): yii\db\Command->execute()
+#3 C:\xampp\htdocs\knowledgetoearn\console\migrations\m130524_201442_init.php(26): yii\db\Migration->createTable('{{%user}}', Array, 'CHARACTER SET u...')
+#4 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(727): m130524_201442_init->up()
+#5 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(202): yii\console\controllers\BaseMigrateController->migrateUp('m130524_201442_...')
+#6 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#7 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#8 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\base\Controller.php(181): yii\base\InlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\Controller.php(184): yii\base\Controller->runAction('', Array)
+#10 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\base\Module.php(528): yii\console\Controller->runAction('', Array)
+#11 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\Application.php(181): yii\base\Module->runAction('migrate', Array)
+#12 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\Application.php(148): yii\console\Application->runAction('migrate', Array)
+#13 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\base\Application.php(392): yii\console\Application->handleRequest(Object(yii\console\Request))
+#14 C:\xampp\htdocs\knowledgetoearn\yii(23): yii\base\Application->run()
+#15 {main}
+
+Next yii\db\Exception: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'user' already exists
+The SQL being executed was: CREATE TABLE `user` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`username` varchar(255) NOT NULL UNIQUE,
+	`auth_key` varchar(32) NOT NULL,
+	`password_hash` varchar(255) NOT NULL,
+	`password_reset_token` varchar(255) UNIQUE,
+	`email` varchar(255) NOT NULL UNIQUE,
+	`status` smallint(6) NOT NULL DEFAULT 10,
+	`created_at` int(11) NOT NULL,
+	`updated_at` int(11) NOT NULL
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB in C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\db\Schema.php:678
+Stack trace:
+#0 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\db\Command.php(1304): yii\db\Schema->convertException(Object(PDOException), 'CREATE TABLE `u...')
+#1 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\db\Command.php(1099): yii\db\Command->internalExecute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\db\Migration.php(323): yii\db\Command->execute()
+#3 C:\xampp\htdocs\knowledgetoearn\console\migrations\m130524_201442_init.php(26): yii\db\Migration->createTable('{{%user}}', Array, 'CHARACTER SET u...')
+#4 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(727): m130524_201442_init->up()
+#5 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(202): yii\console\controllers\BaseMigrateController->migrateUp('m130524_201442_...')
+#6 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#7 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#8 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\base\Controller.php(181): yii\base\InlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\Controller.php(184): yii\base\Controller->runAction('', Array)
+#10 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\base\Module.php(528): yii\console\Controller->runAction('', Array)
+#11 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\Application.php(181): yii\base\Module->runAction('migrate', Array)
+#12 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\Application.php(148): yii\console\Application->runAction('migrate', Array)
+#13 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\base\Application.php(392): yii\console\Application->handleRequest(Object(yii\console\Request))
+#14 C:\xampp\htdocs\knowledgetoearn\yii(23): yii\base\Application->run()
+#15 {main}
+Additional Information:
+Array
+(
+    [0] => 42S01
+    [1] => 1050
+    [2] => Table 'user' already exists
+)
+
+2020-12-11 11:22:55 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'APPDATA' => 'C:\\Users\\Apache1\\AppData\\Roaming'
+    'asl_log' => 'Destination=file'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'THE_KAMAUS-PC'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'GOOGLE_API_KEY' => 'no'
+    'GOOGLE_DEFAULT_CLIENT_ID' => 'no'
+    'GOOGLE_DEFAULT_CLIENT_SECRET' => 'no'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\Apache1'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_251'
+    'JAVA_OPTS' => '-Xms512m -Xmx1024m'
+    'LOCALAPPDATA' => 'C:\\Users\\Apache1\\AppData\\Local'
+    'LOGONSERVER' => '\\\\THE_KAMAUS-PC'
+    'M2_HOME' => 'C:\\xampp\\apache-maven-3.3.9'
+    'MAVEN_HOME' => 'C:\\xampp\\apache-maven-3.3.9'
+    'NUMBER_OF_PROCESSORS' => '2'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\xampp\\php;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\cygnus\\cygwin-b20\\H-i586-cygwin32\\bin;C:\\Program Files\\PostgreSQL\\10\\bin;C:\\Program Files\\PostgreSQL\\10\\data;D:\\Program Files\\nodejs\\;C:\\Program Files\\CodeBlocks\\TDM-GCC-64\\bin;D:\\Program Files\\CodeBlocks\\share\\CodeBlocks\\TDM-GCC-64\\bin;D:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\Program Files\\Java\\jdk1.8.0_251\\bin;c:\\Program Files\\Inkscape\\bin;D:\\cygnus\\cygwin-b20\\H-i586-cygwin32\\bin;C:\\Program Files\\MariaDB\\MariaDB Connector C\\lib\\;C:\\Program Files\\MariaDB\\MariaDB Connector C\\lib\\plugin\\;D:\\Program Files\\Git\\cmd;C:\\Program Files\\WinMerge;C:\\ProgramData\\ComposerSetup\\bin;c:\\xampp\\composer\\slim-skeleton;C:\\Program Files\\Java\\jdk1.8.0_131\\bin;C:\\xampp\\mysql\\bin;C:\\Python27;C:\\Python27\\Scripts;C:\\xampp\\apache-maven-3.3.9\\bin;C:\\Users\\Apache1\\AppData\\Roaming\\npm;C:\\Users\\Apache1\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PHP_COMMAND' => 'php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'x86'
+    'PROCESSOR_IDENTIFIER' => 'x86 Family 6 Model 15 Stepping 13, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '0f0d'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'SESSIONNAME' => 'Console'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\Apache1\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\Apache1\\AppData\\Local\\Temp'
+    'TMPDIR' => 'C:\\Users\\Public\\Documents\\Wondershare\\CreatorTemp'
+    'USERDOMAIN' => 'The_Kamaus-PC'
+    'USERNAME' => 'Apache1'
+    'USERPROFILE' => 'C:\\Users\\Apache1'
+    'VS110COMNTOOLS' => 'C:\\Program Files\\Microsoft Visual Studio 11.0\\Common7\\Tools\\'
+    'windir' => 'C:\\Windows'
+    'windows_tracing_flags' => '3'
+    'windows_tracing_logfile' => 'C:\\BVTBin\\Tests\\installpackage\\csilogfile.log'
+    'YII_PATH' => 'C:\\xampp\\htdocs\\knowledgetoearn\\'
+    'PHP_SELF' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'SCRIPT_NAME' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'SCRIPT_FILENAME' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'PATH_TRANSLATED' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1607682174.9901
+    'REQUEST_TIME' => 1607682174
+    'argv' => [
+        0 => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+        1 => 'migrate'
+        2 => 'm201211_101834_create_category_table'
+    ]
+    'argc' => 3
+]
+2020-12-11 11:43:57 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'user' already exists in C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\db\Command.php:1299
+Stack trace:
+#0 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\db\Command.php(1299): PDOStatement->execute()
+#1 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\db\Command.php(1099): yii\db\Command->internalExecute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\db\Migration.php(323): yii\db\Command->execute()
+#3 C:\xampp\htdocs\knowledgetoearn\console\migrations\m130524_201442_init.php(26): yii\db\Migration->createTable('{{%user}}', Array, 'CHARACTER SET u...')
+#4 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(727): m130524_201442_init->up()
+#5 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(202): yii\console\controllers\BaseMigrateController->migrateUp('m130524_201442_...')
+#6 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#7 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#8 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\base\Controller.php(181): yii\base\InlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\Controller.php(184): yii\base\Controller->runAction('up', Array)
+#10 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\base\Module.php(528): yii\console\Controller->runAction('up', Array)
+#11 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\Application.php(181): yii\base\Module->runAction('migrate/up', Array)
+#12 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\Application.php(148): yii\console\Application->runAction('migrate/up', Array)
+#13 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\base\Application.php(392): yii\console\Application->handleRequest(Object(yii\console\Request))
+#14 C:\xampp\htdocs\knowledgetoearn\yii(23): yii\base\Application->run()
+#15 {main}
+
+Next yii\db\Exception: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'user' already exists
+The SQL being executed was: CREATE TABLE `user` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`username` varchar(255) NOT NULL UNIQUE,
+	`auth_key` varchar(32) NOT NULL,
+	`password_hash` varchar(255) NOT NULL,
+	`password_reset_token` varchar(255) UNIQUE,
+	`email` varchar(255) NOT NULL UNIQUE,
+	`status` smallint(6) NOT NULL DEFAULT 10,
+	`created_at` int(11) NOT NULL,
+	`updated_at` int(11) NOT NULL
+) CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB in C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\db\Schema.php:678
+Stack trace:
+#0 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\db\Command.php(1304): yii\db\Schema->convertException(Object(PDOException), 'CREATE TABLE `u...')
+#1 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\db\Command.php(1099): yii\db\Command->internalExecute('CREATE TABLE `u...')
+#2 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\db\Migration.php(323): yii\db\Command->execute()
+#3 C:\xampp\htdocs\knowledgetoearn\console\migrations\m130524_201442_init.php(26): yii\db\Migration->createTable('{{%user}}', Array, 'CHARACTER SET u...')
+#4 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(727): m130524_201442_init->up()
+#5 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(202): yii\console\controllers\BaseMigrateController->migrateUp('m130524_201442_...')
+#6 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#7 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#8 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\base\Controller.php(181): yii\base\InlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\Controller.php(184): yii\base\Controller->runAction('up', Array)
+#10 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\base\Module.php(528): yii\console\Controller->runAction('up', Array)
+#11 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\Application.php(181): yii\base\Module->runAction('migrate/up', Array)
+#12 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\console\Application.php(148): yii\console\Application->runAction('migrate/up', Array)
+#13 C:\xampp\htdocs\knowledgetoearn\vendor\yiisoft\yii2\base\Application.php(392): yii\console\Application->handleRequest(Object(yii\console\Request))
+#14 C:\xampp\htdocs\knowledgetoearn\yii(23): yii\base\Application->run()
+#15 {main}
+Additional Information:
+Array
+(
+    [0] => 42S01
+    [1] => 1050
+    [2] => Table 'user' already exists
+)
+
+2020-12-11 11:43:36 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'APPDATA' => 'C:\\Users\\Apache1\\AppData\\Roaming'
+    'asl_log' => 'Destination=file'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'THE_KAMAUS-PC'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'GOOGLE_API_KEY' => 'no'
+    'GOOGLE_DEFAULT_CLIENT_ID' => 'no'
+    'GOOGLE_DEFAULT_CLIENT_SECRET' => 'no'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\Apache1'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_251'
+    'JAVA_OPTS' => '-Xms512m -Xmx1024m'
+    'LOCALAPPDATA' => 'C:\\Users\\Apache1\\AppData\\Local'
+    'LOGONSERVER' => '\\\\THE_KAMAUS-PC'
+    'M2_HOME' => 'C:\\xampp\\apache-maven-3.3.9'
+    'MAVEN_HOME' => 'C:\\xampp\\apache-maven-3.3.9'
+    'NUMBER_OF_PROCESSORS' => '2'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\xampp\\php;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\cygnus\\cygwin-b20\\H-i586-cygwin32\\bin;C:\\Program Files\\PostgreSQL\\10\\bin;C:\\Program Files\\PostgreSQL\\10\\data;D:\\Program Files\\nodejs\\;C:\\Program Files\\CodeBlocks\\TDM-GCC-64\\bin;D:\\Program Files\\CodeBlocks\\share\\CodeBlocks\\TDM-GCC-64\\bin;D:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\Program Files\\Java\\jdk1.8.0_251\\bin;c:\\Program Files\\Inkscape\\bin;D:\\cygnus\\cygwin-b20\\H-i586-cygwin32\\bin;C:\\Program Files\\MariaDB\\MariaDB Connector C\\lib\\;C:\\Program Files\\MariaDB\\MariaDB Connector C\\lib\\plugin\\;D:\\Program Files\\Git\\cmd;C:\\Program Files\\WinMerge;C:\\ProgramData\\ComposerSetup\\bin;c:\\xampp\\composer\\slim-skeleton;C:\\Program Files\\Java\\jdk1.8.0_131\\bin;C:\\xampp\\mysql\\bin;C:\\Python27;C:\\Python27\\Scripts;C:\\xampp\\apache-maven-3.3.9\\bin;C:\\Users\\Apache1\\AppData\\Roaming\\npm;C:\\Users\\Apache1\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PHP_COMMAND' => 'php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'x86'
+    'PROCESSOR_IDENTIFIER' => 'x86 Family 6 Model 15 Stepping 13, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '0f0d'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'SESSIONNAME' => 'Console'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\Apache1\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\Apache1\\AppData\\Local\\Temp'
+    'TMPDIR' => 'C:\\Users\\Public\\Documents\\Wondershare\\CreatorTemp'
+    'USERDOMAIN' => 'The_Kamaus-PC'
+    'USERNAME' => 'Apache1'
+    'USERPROFILE' => 'C:\\Users\\Apache1'
+    'VS110COMNTOOLS' => 'C:\\Program Files\\Microsoft Visual Studio 11.0\\Common7\\Tools\\'
+    'windir' => 'C:\\Windows'
+    'windows_tracing_flags' => '3'
+    'windows_tracing_logfile' => 'C:\\BVTBin\\Tests\\installpackage\\csilogfile.log'
+    'YII_PATH' => 'C:\\xampp\\htdocs\\knowledgetoearn\\'
+    'PHP_SELF' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'SCRIPT_NAME' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'SCRIPT_FILENAME' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'PATH_TRANSLATED' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1607683416.7114
+    'REQUEST_TIME' => 1607683416
+    'argv' => [
+        0 => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+        1 => 'migrate/up'
+        2 => 'm201211_101834_create_category_table'
+    ]
+    'argc' => 3
+]
+2020-12-11 11:45:49 [-][-][-][error][yii\base\ErrorException:1] yii\base\ErrorException: m201211_101834_create_category_table cannot use yii\db\Migration - it is not a trait in C:\xampp\htdocs\knowledgetoearn\console\migrations\m201211_101834_create_category_table.php:13
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2020-12-11 11:45:44 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'APPDATA' => 'C:\\Users\\Apache1\\AppData\\Roaming'
+    'asl_log' => 'Destination=file'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'THE_KAMAUS-PC'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'GOOGLE_API_KEY' => 'no'
+    'GOOGLE_DEFAULT_CLIENT_ID' => 'no'
+    'GOOGLE_DEFAULT_CLIENT_SECRET' => 'no'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\Apache1'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_251'
+    'JAVA_OPTS' => '-Xms512m -Xmx1024m'
+    'LOCALAPPDATA' => 'C:\\Users\\Apache1\\AppData\\Local'
+    'LOGONSERVER' => '\\\\THE_KAMAUS-PC'
+    'M2_HOME' => 'C:\\xampp\\apache-maven-3.3.9'
+    'MAVEN_HOME' => 'C:\\xampp\\apache-maven-3.3.9'
+    'NUMBER_OF_PROCESSORS' => '2'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\xampp\\php;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\cygnus\\cygwin-b20\\H-i586-cygwin32\\bin;C:\\Program Files\\PostgreSQL\\10\\bin;C:\\Program Files\\PostgreSQL\\10\\data;D:\\Program Files\\nodejs\\;C:\\Program Files\\CodeBlocks\\TDM-GCC-64\\bin;D:\\Program Files\\CodeBlocks\\share\\CodeBlocks\\TDM-GCC-64\\bin;D:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\Program Files\\Java\\jdk1.8.0_251\\bin;c:\\Program Files\\Inkscape\\bin;D:\\cygnus\\cygwin-b20\\H-i586-cygwin32\\bin;C:\\Program Files\\MariaDB\\MariaDB Connector C\\lib\\;C:\\Program Files\\MariaDB\\MariaDB Connector C\\lib\\plugin\\;D:\\Program Files\\Git\\cmd;C:\\Program Files\\WinMerge;C:\\ProgramData\\ComposerSetup\\bin;c:\\xampp\\composer\\slim-skeleton;C:\\Program Files\\Java\\jdk1.8.0_131\\bin;C:\\xampp\\mysql\\bin;C:\\Python27;C:\\Python27\\Scripts;C:\\xampp\\apache-maven-3.3.9\\bin;C:\\Users\\Apache1\\AppData\\Roaming\\npm;C:\\Users\\Apache1\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PHP_COMMAND' => 'php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'x86'
+    'PROCESSOR_IDENTIFIER' => 'x86 Family 6 Model 15 Stepping 13, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '0f0d'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'SESSIONNAME' => 'Console'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\Apache1\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\Apache1\\AppData\\Local\\Temp'
+    'TMPDIR' => 'C:\\Users\\Public\\Documents\\Wondershare\\CreatorTemp'
+    'USERDOMAIN' => 'The_Kamaus-PC'
+    'USERNAME' => 'Apache1'
+    'USERPROFILE' => 'C:\\Users\\Apache1'
+    'VS110COMNTOOLS' => 'C:\\Program Files\\Microsoft Visual Studio 11.0\\Common7\\Tools\\'
+    'windir' => 'C:\\Windows'
+    'windows_tracing_flags' => '3'
+    'windows_tracing_logfile' => 'C:\\BVTBin\\Tests\\installpackage\\csilogfile.log'
+    'YII_PATH' => 'C:\\xampp\\htdocs\\knowledgetoearn\\'
+    'PHP_SELF' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'SCRIPT_NAME' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'SCRIPT_FILENAME' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'PATH_TRANSLATED' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1607683544.6492
+    'REQUEST_TIME' => 1607683544
+    'argv' => [
+        0 => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+        1 => 'migrate/up'
+        2 => 'm201211_101834_create_category_table'
+    ]
+    'argc' => 3
+]
+2020-12-11 11:46:21 [-][-][-][error][yii\base\ErrorException:1] yii\base\ErrorException: m201211_101834_create_category_table cannot use yii\db\Migration - it is not a trait in C:\xampp\htdocs\knowledgetoearn\console\migrations\m201211_101834_create_category_table.php:13
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2020-12-11 11:46:19 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'APPDATA' => 'C:\\Users\\Apache1\\AppData\\Roaming'
+    'asl_log' => 'Destination=file'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'THE_KAMAUS-PC'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'GOOGLE_API_KEY' => 'no'
+    'GOOGLE_DEFAULT_CLIENT_ID' => 'no'
+    'GOOGLE_DEFAULT_CLIENT_SECRET' => 'no'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\Apache1'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_251'
+    'JAVA_OPTS' => '-Xms512m -Xmx1024m'
+    'LOCALAPPDATA' => 'C:\\Users\\Apache1\\AppData\\Local'
+    'LOGONSERVER' => '\\\\THE_KAMAUS-PC'
+    'M2_HOME' => 'C:\\xampp\\apache-maven-3.3.9'
+    'MAVEN_HOME' => 'C:\\xampp\\apache-maven-3.3.9'
+    'NUMBER_OF_PROCESSORS' => '2'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\xampp\\php;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\cygnus\\cygwin-b20\\H-i586-cygwin32\\bin;C:\\Program Files\\PostgreSQL\\10\\bin;C:\\Program Files\\PostgreSQL\\10\\data;D:\\Program Files\\nodejs\\;C:\\Program Files\\CodeBlocks\\TDM-GCC-64\\bin;D:\\Program Files\\CodeBlocks\\share\\CodeBlocks\\TDM-GCC-64\\bin;D:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\Program Files\\Java\\jdk1.8.0_251\\bin;c:\\Program Files\\Inkscape\\bin;D:\\cygnus\\cygwin-b20\\H-i586-cygwin32\\bin;C:\\Program Files\\MariaDB\\MariaDB Connector C\\lib\\;C:\\Program Files\\MariaDB\\MariaDB Connector C\\lib\\plugin\\;D:\\Program Files\\Git\\cmd;C:\\Program Files\\WinMerge;C:\\ProgramData\\ComposerSetup\\bin;c:\\xampp\\composer\\slim-skeleton;C:\\Program Files\\Java\\jdk1.8.0_131\\bin;C:\\xampp\\mysql\\bin;C:\\Python27;C:\\Python27\\Scripts;C:\\xampp\\apache-maven-3.3.9\\bin;C:\\Users\\Apache1\\AppData\\Roaming\\npm;C:\\Users\\Apache1\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PHP_COMMAND' => 'php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'x86'
+    'PROCESSOR_IDENTIFIER' => 'x86 Family 6 Model 15 Stepping 13, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '0f0d'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'SESSIONNAME' => 'Console'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\Apache1\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\Apache1\\AppData\\Local\\Temp'
+    'TMPDIR' => 'C:\\Users\\Public\\Documents\\Wondershare\\CreatorTemp'
+    'USERDOMAIN' => 'The_Kamaus-PC'
+    'USERNAME' => 'Apache1'
+    'USERPROFILE' => 'C:\\Users\\Apache1'
+    'VS110COMNTOOLS' => 'C:\\Program Files\\Microsoft Visual Studio 11.0\\Common7\\Tools\\'
+    'windir' => 'C:\\Windows'
+    'windows_tracing_flags' => '3'
+    'windows_tracing_logfile' => 'C:\\BVTBin\\Tests\\installpackage\\csilogfile.log'
+    'YII_PATH' => 'C:\\xampp\\htdocs\\knowledgetoearn\\'
+    'PHP_SELF' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'SCRIPT_NAME' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'SCRIPT_FILENAME' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'PATH_TRANSLATED' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1607683579.6401
+    'REQUEST_TIME' => 1607683579
+    'argv' => [
+        0 => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+        1 => 'migrate'
+    ]
+    'argc' => 2
+]
+2020-12-14 07:54:42 [-][-][-][error][yii\base\ErrorException:1] yii\base\ErrorException: m201211_101834_create_category_table cannot use yii\db\Migration - it is not a trait in C:\xampp\htdocs\knowledgetoearn\console\migrations\m201211_101834_create_category_table.php:13
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2020-12-14 07:54:37 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'APPDATA' => 'C:\\Users\\Apache1\\AppData\\Roaming'
+    'asl_log' => 'Destination=file'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'THE_KAMAUS-PC'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'GOOGLE_API_KEY' => 'no'
+    'GOOGLE_DEFAULT_CLIENT_ID' => 'no'
+    'GOOGLE_DEFAULT_CLIENT_SECRET' => 'no'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\Apache1'
+    'JAVA_HOME' => 'C:\\Program Files\\Java\\jdk1.8.0_251'
+    'JAVA_OPTS' => '-Xms512m -Xmx1024m'
+    'LOCALAPPDATA' => 'C:\\Users\\Apache1\\AppData\\Local'
+    'LOGONSERVER' => '\\\\THE_KAMAUS-PC'
+    'M2_HOME' => 'C:\\xampp\\apache-maven-3.3.9'
+    'MAVEN_HOME' => 'C:\\xampp\\apache-maven-3.3.9'
+    'NUMBER_OF_PROCESSORS' => '2'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\Program Files\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\xampp\\php;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\cygnus\\cygwin-b20\\H-i586-cygwin32\\bin;C:\\Program Files\\PostgreSQL\\10\\bin;C:\\Program Files\\PostgreSQL\\10\\data;D:\\Program Files\\nodejs\\;C:\\Program Files\\CodeBlocks\\TDM-GCC-64\\bin;D:\\Program Files\\CodeBlocks\\share\\CodeBlocks\\TDM-GCC-64\\bin;D:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\Program Files\\Java\\jdk1.8.0_251\\bin;c:\\Program Files\\Inkscape\\bin;D:\\cygnus\\cygwin-b20\\H-i586-cygwin32\\bin;C:\\Program Files\\MariaDB\\MariaDB Connector C\\lib\\;C:\\Program Files\\MariaDB\\MariaDB Connector C\\lib\\plugin\\;D:\\Program Files\\Git\\cmd;C:\\Program Files\\WinMerge;C:\\ProgramData\\ComposerSetup\\bin;c:\\xampp\\composer\\slim-skeleton;C:\\Program Files\\Java\\jdk1.8.0_131\\bin;C:\\xampp\\mysql\\bin;C:\\Python27;C:\\Python27\\Scripts;C:\\xampp\\apache-maven-3.3.9\\bin;C:\\Users\\Apache1\\AppData\\Roaming\\npm;C:\\Users\\Apache1\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PHP_COMMAND' => 'php.exe'
+    'PROCESSOR_ARCHITECTURE' => 'x86'
+    'PROCESSOR_IDENTIFIER' => 'x86 Family 6 Model 15 Stepping 13, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '0f0d'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'PROMPT' => '$P$G'
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'SESSIONNAME' => 'Console'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\Apache1\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\Apache1\\AppData\\Local\\Temp'
+    'TMPDIR' => 'C:\\Users\\Public\\Documents\\Wondershare\\CreatorTemp'
+    'USERDOMAIN' => 'The_Kamaus-PC'
+    'USERNAME' => 'Apache1'
+    'USERPROFILE' => 'C:\\Users\\Apache1'
+    'VS110COMNTOOLS' => 'C:\\Program Files\\Microsoft Visual Studio 11.0\\Common7\\Tools\\'
+    'windir' => 'C:\\Windows'
+    'windows_tracing_flags' => '3'
+    'windows_tracing_logfile' => 'C:\\BVTBin\\Tests\\installpackage\\csilogfile.log'
+    'YII_PATH' => 'C:\\xampp\\htdocs\\knowledgetoearn\\'
+    'PHP_SELF' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'SCRIPT_NAME' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'SCRIPT_FILENAME' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'PATH_TRANSLATED' => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1607928877.1793
+    'REQUEST_TIME' => 1607928877
+    'argv' => [
+        0 => 'C:\\xampp\\htdocs\\knowledgetoearn\\yii'
+        1 => 'migrate'
+    ]
+    'argc' => 2
+]
