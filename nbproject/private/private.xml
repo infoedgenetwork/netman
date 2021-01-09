@@ -3,7 +3,32 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/knowledgetoearn/frontend/views/site/services.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/frontend/modules/dashboard/models/Membership.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/backend/modules/payments/controllers/InpaymentsController.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/backend/modules/payments/models/Recipienttypes.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/frontend/modules/payments/views/inpayments/packregistration.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/backend/modules/payments/views/compensationtypes/view.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/frontend/views/layouts/main.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/backend/modules/payments/views/recipient-types/create.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/common/components/MemberDetails.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/backend/modules/payments/controllers/PaymenttypesController.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/backend/modules/payments/controllers/RecipientTypesController.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/backend/modules/payments/views/recipient-types/index.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/backend/modules/payments/views/compensationtypes/create.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/frontend/modules/payments/models/Inpayments.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/backend/modules/payments/views/packconfig/create.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/backend/modules/payments/models/Compensationtypes.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/backend/modules/payments/views/compensationtypes/update.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/backend/modules/payments/views/recipient-types/update.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/backend/modules/payments/controllers/CompensationtypesController.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/frontend/modules/dashboard/views/default/index.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/frontend/web/images/person4.jpg</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/frontend/modules/payments/controllers/InpaymentsController.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/frontend/modules/basic/models/People.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/frontend/modules/dashboard/controllers/DefaultController.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/backend/modules/payments/views/default/index.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/frontend/models/SignupForm.php</file>
+            <file>file:/C:/xampp/htdocs/knowledgetoearn/backend/modules/payments/views/recipient-types/_form.php</file>
         </group>
     </open-files>
 </project-private>

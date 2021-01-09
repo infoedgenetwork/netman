@@ -64,14 +64,21 @@ class PointtrxtypesController extends Controller
      */
     public function actionCreate()
     {
+        $session = Yii::$app->session;
         $model = new Pointtrxtypes();
+        $searchModel = new PointtrxtypesSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            $model = new Pointtrxtypes();
+            $session->setflash('success','Transaction Tpe Saves successfully');
+            //return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -84,10 +91,12 @@ class PointtrxtypesController extends Controller
      */
     public function actionUpdate($id)
     {
+        $session = Yii::$app->session;
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            $session->setflash('success','Transaction Type successfully updated');
+            return $this->redirect(['create']);
         }
 
         return $this->render('update', [

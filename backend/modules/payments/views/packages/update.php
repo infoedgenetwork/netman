@@ -8,8 +8,8 @@ use yii\helpers\Html;
 $this->title = Yii::t('app', 'Update Packages: {name}', [
     'name' => $model->id,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Packages'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Payment Config'), 'url' => ['default/index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Add package'), 'url' => ['create']];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="packages-update">

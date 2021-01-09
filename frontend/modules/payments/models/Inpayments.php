@@ -39,10 +39,11 @@ class Inpayments extends \yii\db\ActiveRecord
     {
         return [
             [['member', 'package','ptype', 'amount', 'pdate', 'pMethod', 'transactionNo'], 'required'],
-            [['member', 'package', 'ptype', 'package', 'recordBy','confirmedBy'], 'integer'],
+            [['member', 'package', 'ptype', 'package', 'recordBy','confirmBy'], 'integer'],
             [['amount'], 'number'],
             [['pdate', 'recordDate','confirmDate'], 'safe'],
             [['transactionNo'], 'string', 'max' => 30],
+            [['transactionNo'], 'filter', 'filter' => [$this, 'changeUpperCase']],
             [['comments'], 'string', 'max' => 45],
             [['member'], 'exist', 'skipOnError' => true, 'targetClass' => \frontend\modules\basic\models\People::className(), 'targetAttribute' => ['member' => 'id']],
             [['package'], 'exist', 'skipOnError' => true, 'targetClass' => Packages::className(), 'targetAttribute' => ['package' => 'id']],
@@ -51,6 +52,15 @@ class Inpayments extends \yii\db\ActiveRecord
         ];
     }
 
+    /**
+     * 
+     * @param type $value
+     * @return type uppercase of the string
+     */
+    public Function changeUpperCase($value){
+        return strtoupper($value);
+    }
+    
     /**
      * {@inheritdoc}
      */
@@ -65,7 +75,7 @@ class Inpayments extends \yii\db\ActiveRecord
             'pdate' => Yii::t('app', 'Pdate'),
             'pMethod' => Yii::t('app', 'P Method'),
             'transactionNo' => Yii::t('app', 'Transaction No'),
-            'confirmedBy' => Yii::t('app', 'Confirmed By'),
+            'confirmBy' => Yii::t('app', 'Confirmed By'),
             'confirmDate' => Yii::t('app', 'Confirm Date'),
             'comments' => Yii::t('app', 'Comments'),
             'recordDate' => Yii::t('app', 'Record Date'),

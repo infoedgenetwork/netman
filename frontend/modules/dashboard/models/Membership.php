@@ -22,6 +22,7 @@ use yii\helpers\Html;
 class Membership extends Model {
     public $memberName;
     public $memberNo;
+    public $memberId;
     public $memberRank;
     public $status;
     public $level;
@@ -66,6 +67,7 @@ class Membership extends Model {
     {
         $this->memberName = $myqry['firstName'].' '.$myqry['surname'];
         $this->memberNo =  $myqry['membershipNo'];
+        $this->memberId = $myqry['member'];
         $this->memberRank = $myqry['rankName'];
         $this->level = $myqry['level'];
         $this->status = $myqry['Status'];

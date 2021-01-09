@@ -5,9 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\modules\payments\models\Pointtrxtypes */
 
-$this->title = Yii::t('app', 'Update Pointtrxtypes');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Pointtrxtypes'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+$this->title = Yii::t('app', 'Update Transaction Types');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Payment Config'), 'url' => ['default/index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Add Transaction Types'), 'url' => ['create']];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="pointtrxtypes-update">

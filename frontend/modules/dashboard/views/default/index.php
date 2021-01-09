@@ -3,13 +3,15 @@
 $this->title="Dashboard";
 
 use frontend\assets\LocalAssets;
-LocalAssets::register($this);
+use yii\helpers\Html;
+
 $this->registerLinkTag([
 //'title' => 'Live News for Yii',
 'rel' => 'stylesheet',
 //'type' => 'application/rss+xml',
 'href' => 'https://unpkg.com/treeflex/dist/css/treeflex.css',
 ]);
+LocalAssets::register($this);
 ?>
 <div class="dashboard-default-index">
     <div class="page-header col-md-offset-1">
@@ -48,8 +50,9 @@ $this->registerLinkTag([
                 'orgchart' => $orgchart,
         ]) ?>
         <strong>Note: </strong>Place mouse over picture to see the member's name
-        <div class="tf-tree example">
-  <ul>
+        <div class="tf-tree">
+            
+  <!--<ul>
     <li>
       <span class="tf-nc">1</span>
       <ul>
@@ -76,9 +79,13 @@ $this->registerLinkTag([
         </li>
       </ul>
     </li>
-  </ul>
-</div>
-        <?= print_r($parents) ?>
+  </ul>-->
+  <?= $mytree ?>
+  </div>
+        <div>
+            
+        </div>
+        <!--<?= print_r($parents) ?>-->
     </div>
     
 </div>

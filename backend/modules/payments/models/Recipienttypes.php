@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "recipienttypes".
  *
  * @property int $id
- * @property string $typeName
+ * @property string $recpTypeName
  *
  * @property Packconfig[] $packconfigs
  */
@@ -28,8 +28,8 @@ class Recipienttypes extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['typeName'], 'required'],
-            [['typeName'], 'string', 'max' => 45],
+            [['recpTypeName'], 'required'],
+            [['recpTypeName'], 'string', 'max' => 45],
         ];
     }
 
@@ -40,7 +40,7 @@ class Recipienttypes extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'typeName' => Yii::t('app', 'Type Name'),
+            'recpTypeName' => Yii::t('app', 'Recipient Type Name'),
         ];
     }
 

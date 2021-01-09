@@ -51,7 +51,9 @@ use frontend\modules\payments\models\Packages;
             <?= $form->field($model, 'pMethod')->dropDownList(ArrayHelper::map(Paymethods::find()->all(), 'id', 'methodName')) ?>
         </div>
         <div class="col-sm-2">
-            <?= $form->field($model, 'package')->dropDownList(ArrayHelper::map(Packages::find()->all(), 'id', 'packName')) ?>
+            <?= $form->field($model, 'package')->dropDownList(ArrayHelper::map(Packages::find()->all(), 'id', 'packName'),['prompt'=>'--Choose Package--','onChange'=>
+                        '$.post("index.php?r=payments/inpayments/get-pack-value&package='.'$this->val()")'
+                ]) ?>
         </div>
         <div class="col-sm-2">
             <?= $form->field($model, 'transactionNo')->textInput(['maxlength' => true]) ?>

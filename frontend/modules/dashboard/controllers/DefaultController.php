@@ -2,6 +2,7 @@
 
 namespace app\modules\dashboard\controllers;
 
+use Yii;
 use yii\web\Controller;
 use frontend\modules\dashboard\models\Membership;
 
@@ -26,13 +27,20 @@ class DefaultController extends Controller
                         [['v' => 'Carol', 'f' => '<img src="images/person5.jpg" /><br  /><strong>Carol</strong><br  />The Test'], '1001', 'Carol Title'],
 
                 ];
-
+        $mytree = Yii::$app->memberdetails->getTree($membership->memberId);
+        
+        //$mytree = Yii::$app->memberdetails->showArray($membership->memberId);
+        /*$thehtmltest = '<ul><li>thank you</li>'
+                . '<li>hello</li></ul>';*/
         return $this->render('index',[
             'membership'=> $membership,
             //'orgchart' => $orgchart,
             'orgchart' => $membership->showArray,
             'parents' => $membership->parents,
+            'mytree' => $mytree,
+            //'thehtmltest' =>$thehtmltest,
         ]);
         
     }
+    
 }

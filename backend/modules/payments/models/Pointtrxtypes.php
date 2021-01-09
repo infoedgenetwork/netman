@@ -40,7 +40,7 @@ class Pointtrxtypes extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'trxTypeName' => Yii::t('app', 'Trx Type Name'),
+            'trxTypeName' => Yii::t('app', 'Transaction Type Name'),
         ];
     }
 

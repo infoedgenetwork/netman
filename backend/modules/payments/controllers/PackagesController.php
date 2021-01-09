@@ -64,13 +64,13 @@ class PackagesController extends Controller
      */
     public function actionCreate()
     {
-        $session = Yii::$app->session;
+        $session=Yii::$app->session;
         $model = new Packages();
         $searchModel = new PackagesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $session->setFlash('success', 'Packge added successfully');
+            $session->setFlash('success','Package Registration was successful');
             $model = new Packages();
             //return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -91,10 +91,12 @@ class PackagesController extends Controller
      */
     public function actionUpdate($id)
     {
+        $session=Yii::$app->session;
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            $session->setFlash('success','Package Registration update was successful');
+            return $this->redirect(['create']);
         }
 
         return $this->render('update', [

@@ -13,8 +13,9 @@ use backend\modules\basic\models\People;
 /* @var $this yii\web\View */
 /* @var $model backend\modules\payments\models\Inpayments */
 /* @var $form ActiveForm */
-$this->title = Yii::t('app', 'Confrim Payment');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Admin Switchboard'), 'url' => ['default']];
+$this->title = Yii::t('app', 'Confirm Payment');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Payment Config'), 'url' => ['default/index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Check Payments'), 'url' => ['checkpay']];
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>

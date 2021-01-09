@@ -7,7 +7,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Signup';
+$this->title = 'Join Us';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-signup">
@@ -44,7 +44,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </div>
                 <div class="form-group">
-                    <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                    Clicking here below means that you agree with our <?= Html::a('Terms and Conditions', ['termsandconditions'])?><br>
+                    <?= Html::submitButton('Join', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                    
                 </div>
 
             <?php ActiveForm::end(); ?>

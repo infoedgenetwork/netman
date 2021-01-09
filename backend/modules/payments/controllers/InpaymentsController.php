@@ -8,9 +8,10 @@ use backend\modules\payments\models\InpaymentsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\data\ActiveDataProvider;
 
 use common\models\Category;
-
+use backend\modules\payments\models\Failedpayreasons;
 
 /**
  * InpaymentsController implements the CRUD actions for Inpayments model.
@@ -42,6 +43,22 @@ class InpaymentsController extends Controller
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    
+    /**
+     * Lists all Inpayments models.
+     * @return mixed
+     */
+    public function actionCheckpay()
+    {
+        
+        $searchModel = new InpaymentsSearch();
+        $dataProvider = $searchModel->searchUnpaid(Yii::$app->request->queryParams);
+
+        return $this->render('checkpay', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -84,22 +101,26 @@ class InpaymentsController extends Controller
      */
     public function actionConfirmpay($memberId)
     {
-        $memberdetails = Yii::$app->memberdetails;
+        $session = Yii::$app->session;
+        $memberDetails = Yii::$app->memberdetails;
         $model = Inpayments::find()->where(['member'=>$memberId])->one();
         $model->scenario ='confirmpay';
-        $model->confirmed = 0;
+        //$model->confirmed = 0;
         //$model->scenario= 'confirmpay';
         if ($model->load(Yii::$app->request->post())&& $model->validate()) {
-            //if ( {
+            $model->confirmBy = Yii::$app->user->id;
+            $model->confirmDate = date('Y-m-d H:i:s');
+            $model->save();
+            $session->setFlash('success', 'Payment successfully confirmed!');
+            if ($model->confirmed) {
                 // form inputs are valid, do something here
-                $model->confirmedBy = Yii::$app->user->id;
-                $model->confirmDate = date('Y-m-d H:i:s');
-                $model->save();
-                // update sponsorship table
-                $sponsor=$memberdetails->getTempSponsorDetails($memberId);
-                $memberdetails->getNextParent($sponsor);
-                $memberdetails->addChild($memberdetails->nextParent);
-            //}
+                /*$session->addFlash('success',*/$this->updateSponsor($model);//);
+                
+            }else{
+                $this->logFailedResons($model);
+                $session->addFlash('warning','Payment was not confirmed');
+            }
+            //$this->redirect(['checkpay']);
         }
 
         return $this->render('confirmpay', [
@@ -107,6 +128,16 @@ class InpaymentsController extends Controller
         ]);
     }
 
+    private function logFailedResons(&$model){
+        if($model->dirtyAttributes){
+            $mylogModel=new Failedpayreasons();
+            $mylogModel->inpaymentId = $model->id;
+            $mylogModel->rejectedReason = $model->comments;
+            $mylogModel->rejectedDate = $model->confirmDate;
+            $mylogModel->rejectedBy =   $model->confirmBy;
+            $mylogModel->save();
+        }
+    }
     /**
      * Updates an existing Inpayments model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -176,4 +207,30 @@ class InpaymentsController extends Controller
                 ->count();
         return $itemCnt==0?1:0;
     }
+    public function updateSponsor($model){
+                $msg='';
+                $memberDetails=Yii::$app->memberdetails;
+                $memberId = $model->member;
+                $msg.='MemberId: '.$memberId;
+                $userId = Yii::$app->user->id;
+                // update sponsorship table
+                $sponsorNo=$memberDetails->getTempSponsorDetails2($memberId);
+                $msg.='<br>sponsorNo: '.$sponsorNo;
+                $side = $memberDetails->getTempSponsorDetails2($memberId,2);
+                $msg.='<br>Side: '.$side;
+                //$msg= 'Sponsor found(tempSponsor): '.$sponsor.'<br>';
+                $sponsorId = $memberDetails->getMemberPartsUsingMemberNo($sponsorNo);
+                $msg.='<br>sponsorId: '.$sponsorId;
+                $parentNo=$memberDetails->getTempSponsorDetails2($memberId);
+                $msg.='<br>ParentNo: '.$parentNo;
+                $parentId = $memberDetails->getTempSponsorDetails2($memberId,3)>0?$memberDetails->getMemberPartsUsingMemberNo($memberDetails->getTempSponsorDetails2($memberId,3)):0;
+                $msg.='<br>ParentId: '.$parentId;
+                $parent= $memberDetails->getParent($sponsorId,$parentId);
+                $msg.='<br>Parent: '.$parent;
+                $position = $memberDetails->getNextPosition($parentId,$side);
+                $msg.='<br>Position: '.$position;
+                $msg .= $memberDetails->addChild($memberId,$parent,$sponsorId,$position);
+                return $msg;
+    }
+    
 }

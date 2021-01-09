@@ -40,7 +40,7 @@ class Compensationtypes extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'compTypeName' => Yii::t('app', 'Comp Type Name'),
+            'compTypeName' => Yii::t('app', 'Compensation Type Name'),
         ];
     }
 

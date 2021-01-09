@@ -1,12 +1,13 @@
 <?php
 
 use yii\helpers\Html;
+use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $model backend\modules\payments\models\Pointtrxtypes */
 
-$this->title = Yii::t('app', 'Create Pointtrxtypes');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Pointtrxtypes'), 'url' => ['index']];
+$this->title = Yii::t('app', 'Add Transaction Types');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Payment Config'), 'url' => ['default/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pointtrxtypes-create">
@@ -16,5 +17,18 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
+    <h2>Listed Transaction Types</h2>
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
 
+            //'id',
+            'trxTypeName',
+
+            ['class' => 'yii\grid\ActionColumn',
+                'template'=>'{update}'],
+        ],
+    ]); ?>
 </div>

@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => 'd7a1f5b0e68544e93934908a183e98b5a1c6d845',
     'name' => 'yiisoft/yii2-app-advanced',
   ),
   'versions' => 
@@ -55,6 +55,15 @@
       array (
       ),
       'reference' => 'd364be5b066b38f3675a5a1dc174ce1ab1f3360e',
+    ),
+    'bower-asset/clipboard' => 
+    array (
+      'pretty_version' => 'v2.0.6',
+      'version' => '2.0.6.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'fddd2aac5f8772c468b36e8607ab9b0704ee73c6',
     ),
     'bower-asset/inputmask' => 
     array (
@@ -217,6 +226,16 @@
       array (
       ),
       'reference' => 'e864bbf5904cb8f5bb334f99209b48018522f042',
+    ),
+    'eddmash/yii2-clipboard' => 
+    array (
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
+      'aliases' => 
+      array (
+        0 => '1.0.x-dev',
+      ),
+      'reference' => 'b3eb95f8e75283272f5bcff1bd8f23941fdea657',
     ),
     'egulias/email-validator' => 
     array (
@@ -792,12 +811,12 @@
     ),
     'yiisoft/yii2-app-advanced' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => 'd7a1f5b0e68544e93934908a183e98b5a1c6d845',
     ),
     'yiisoft/yii2-bootstrap' => 
     array (

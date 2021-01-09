@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+
 /**
  * PackconfigController implements the CRUD actions for Packconfig model.
  */
@@ -65,13 +66,20 @@ class PackconfigController extends Controller
     public function actionCreate()
     {
         $model = new Packconfig();
+        $searchModel = new PackconfigSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) ) {
+            $model->recordBy= Yii::$app->user->id;
+            $model->recordDate = date("Y-m-d H:i:s");
+            $model->save();
+            //return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -86,8 +94,11 @@ class PackconfigController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) ) {
+            $model->changedBy = Yii::$app->user->id;
+            $model->changeDate = date("Y-m-d H:i:s");
+            $model->save();
+            return $this->redirect(['create']);
         }
 
         return $this->render('update', [

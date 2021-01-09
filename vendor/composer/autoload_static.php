@@ -105,6 +105,7 @@ class ComposerStaticInitd8701901dc056bc963fd809704e08982
         'E' => 
         array (
             'Egulias\\EmailValidator\\' => 23,
+            'Eddmash\\Clipboard\\' => 18,
         ),
         'D' => 
         array (
@@ -290,6 +291,10 @@ class ComposerStaticInitd8701901dc056bc963fd809704e08982
         'Egulias\\EmailValidator\\' => 
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/src',
+        ),
+        'Eddmash\\Clipboard\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/eddmash/yii2-clipboard/src',
         ),
         'Doctrine\\Instantiator\\' => 
         array (

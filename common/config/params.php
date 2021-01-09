@@ -6,5 +6,6 @@ return [
     'senderName' => 'infoedgenetwork.com mailer',
     'user.passwordResetTokenExpire' => 3600,
     'user.passwordMinLength' => 8,
-    'copyright' => 'Copyright @ 2020 Optimum Performance Solutions Ltd. - All rights reserved.',
+    'copyright' => 'Copyright &#169 2021 Optimum Performance Solutions Ltd. - All rights reserved.',
+    'maxLevels'=>6,
 ];

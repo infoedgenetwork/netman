@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7be993017e495e297693bc3ab3c6baf7",
+    "content-hash": "7431e734d525ad7c61129e58b509c877",
     "packages": [
         {
             "name": "2amigos/yii2-date-picker-widget",
@@ -163,6 +163,24 @@
             "type": "bower-asset",
             "license": [
                 "Apache-2.0"
+            ]
+        },
+        {
+            "name": "bower-asset/clipboard",
+            "version": "v2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zenorocha/clipboard.js.git",
+                "reference": "fddd2aac5f8772c468b36e8607ab9b0704ee73c6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zenorocha/clipboard.js/zipball/fddd2aac5f8772c468b36e8607ab9b0704ee73c6",
+                "reference": "fddd2aac5f8772c468b36e8607ab9b0704ee73c6"
+            },
+            "type": "bower-asset",
+            "license": [
+                "MIT"
             ]
         },
         {
@@ -448,6 +466,59 @@
                 }
             ],
             "time": "2020-05-25T17:44:05+00:00"
+        },
+        {
+            "name": "eddmash/yii2-clipboard",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eddmash/yii2-clipboard.git",
+                "reference": "b3eb95f8e75283272f5bcff1bd8f23941fdea657"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eddmash/yii2-clipboard/zipball/b3eb95f8e75283272f5bcff1bd8f23941fdea657",
+                "reference": "b3eb95f8e75283272f5bcff1bd8f23941fdea657",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/clipboard": "*",
+                "yiisoft/yii2": ">=2.0.6"
+            },
+            "default-branch": true,
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Eddmash\\Clipboard\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "EDDILBERT MACHARIA",
+                    "email": "edd.cowan@gmail.com",
+                    "homepage": "http://eddmash.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The Clipboard js extension for the Yii2 framework",
+            "keywords": [
+                "clipboard js",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/eddmash/yii2-clipboard/issues",
+                "source": "https://github.com/eddmash/yii2-clipboard/tree/master"
+            },
+            "time": "2019-02-08T12:52:35+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -5440,7 +5511,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "eddmash/yii2-clipboard": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

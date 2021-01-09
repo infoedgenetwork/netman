@@ -32,9 +32,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' =>'member0.fullName',
                 ],
             [
+                'label'=>'E-mail',
+                'value'=> 'member0.user.email'
+                ],
+            [
                 'label'=>'Payment Type',
                 'value'=>'ptype0.ptypeName',],
             'transactionNo',
+            'package',
             'pdate',
             'amount',
             

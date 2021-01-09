@@ -64,14 +64,22 @@ class CompensationtypesController extends Controller
      */
     public function actionCreate()
     {
+        $session = Yii::$app->session;
         $model = new Compensationtypes();
+        $searchModel = new CompensationtypesSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) ) {
+            $model->save();
+            $model = new Compensationtypes();
+            $session->setFlash('success', 'Compensation Type successfully added.');
+            //return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -84,10 +92,12 @@ class CompensationtypesController extends Controller
      */
     public function actionUpdate($id)
     {
+        $session = Yii::$app->session;
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            $session->setFlash('success', 'Compensation Type successfully updated.');
+            return $this->redirect(['create']);
         }
 
         return $this->render('update', [

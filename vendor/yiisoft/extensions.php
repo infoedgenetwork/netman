@@ -93,4 +93,13 @@ return array (
       '@creocoder/nestedsets' => $vendorDir . '/creocoder/yii2-nested-sets/src',
     ),
   ),
+  'eddmash/yii2-clipboard' => 
+  array (
+    'name' => 'eddmash/yii2-clipboard',
+    'version' => 'dev-master',
+    'alias' => 
+    array (
+      '@Eddmash/Clipboard' => $vendorDir . '/eddmash/yii2-clipboard/src',
+    ),
+  ),
 );

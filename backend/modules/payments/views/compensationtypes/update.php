@@ -5,11 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\modules\payments\models\Compensationtypes */
 
-$this->title = Yii::t('app', 'Update Compensationtypes: {name}', [
-    'name' => $model->id,
-]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Compensationtypes'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
+$this->title = Yii::t('app', 'Update Compenation Types');
+//$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Compensationtypes'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Payment Config'), 'url' => ['default/index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Add Compenation Types'), 'url' => ['create']];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="compensationtypes-update">

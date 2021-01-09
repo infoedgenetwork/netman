@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $model backend\modules\payments\models\Packages */
 
 $this->title = Yii::t('app', 'Add Package');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Packages'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Payment Config'), 'url' => ['default/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="packages-create">
@@ -27,7 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
             //'id',
             'packName',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+                'template'=>'{update}'],
         ],
     ]); ?>
 </div>

@@ -43,15 +43,21 @@ AppAsset::register($this);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Products', 'url' => ['/site/products']],
         ['label' => 'Services', 'url' => ['/site/services']],
+        ['label' => 'Opportunity', 'url' => ['/site/opportunity']],
+        ['label' => 'Events', 'url' => ['/site/events']],
+        ['label' => 'FAQ', 'url' => ['/site/faq']],
         ['label' => 'Contact', 'url' => ['/site/contact']],
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
+        $menuItems[] = ['label' => 'Join', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
-        $menuItems[] = '<li>'
+        
+        if(Yii::$app->memberdetails->isRegistered(Yii::$app->userdetails->getPersonId(Yii::$app->user->id)) ) {
+            $menuItems[] = ['label' => 'Dashboard', 'url' => ['/dashboard/default/index']];
+        }
+          $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
                 'Logout (' . Yii::$app->user->identity->username . ')',
@@ -59,7 +65,7 @@ AppAsset::register($this);
             )
             . Html::endForm()
             . '</li>';
-    }
+    }   
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => $menuItems,

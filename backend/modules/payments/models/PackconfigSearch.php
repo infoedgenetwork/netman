@@ -17,9 +17,9 @@ class PackconfigSearch extends Packconfig
     public function rules()
     {
         return [
-            [['id', 'packId', 'rankId', 'relevel', 'cmpsntype', 'recipientType', 'units', 'recordBy', 'changedBy'], 'integer'],
+            [['id', 'packId', 'trxType', 'recordBy', 'changedBy'], 'integer'],
             [['amount'], 'number'],
-            [['itemcntrl', 'recordDate', 'changeDate'], 'safe'],
+            [['recordDate', 'changeDate'], 'safe'],
         ];
     }
 
@@ -61,19 +61,13 @@ class PackconfigSearch extends Packconfig
         $query->andFilterWhere([
             'id' => $this->id,
             'packId' => $this->packId,
-            'rankId' => $this->rankId,
-            'relevel' => $this->relevel,
-            'cmpsntype' => $this->cmpsntype,
-            'recipientType' => $this->recipientType,
-            'units' => $this->units,
+            'trxType' => $this->trxType,
             'amount' => $this->amount,
             'recordBy' => $this->recordBy,
             'recordDate' => $this->recordDate,
             'changedBy' => $this->changedBy,
             'changeDate' => $this->changeDate,
         ]);
-
-        $query->andFilterWhere(['like', 'itemcntrl', $this->itemcntrl]);
 
         return $dataProvider;
     }

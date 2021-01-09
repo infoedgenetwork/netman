@@ -15,11 +15,18 @@ and open the template in the editor.
 }
 .thelogo{
     top:55px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    align: right;
 }
 .thelogo2{
     top:100px;
 }
 
+.topimg{
+    padding-bottom: 40px;
+}
 .topbanner{
     min-height: 100px;
 }
@@ -32,4 +39,27 @@ and open the template in the editor.
 
 .img-intro{
     float: right;
+}
+div#pack-desc > table.table td {
+    padding: 20px;
+    
+}
+.tf-tree .tf-nc{
+    display:block;
+    align-content: center;
+    justify-content: center;
+    font-size: 10px;
+    border-radius: 0.5em;
+    background-color: #71dd8a;
+    
+}
+.tf-tree *{
+    font-size: 12px;
+}
+
+.treenode img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
 }

@@ -80,12 +80,12 @@ class SignupForm extends Model
         }
         
         $user = new User();
-        $user->username = $this->username;
+        $user->username = $this->email;
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
-        $user->save() /*&& $this->sendEmail($user)*/;
+        $user->save() && $this->sendEmail($user);
         $this->saveSponsored( $parent, $sponsor,$left);
         return true;
     }
@@ -120,7 +120,7 @@ class SignupForm extends Model
                 'sponsor'=> $sponsor,
                 'member' => $id,
                 'parent' => $parent,//?? need to confirm if parent is a child of sponsor??
-                'lft' => $lft=='l'?1:0,
+                'lft' => $lft,
                 'RecordDate' => date('Y-m-d H:i:s'),
                 'RecordBy' => $id
                 ])->execute();

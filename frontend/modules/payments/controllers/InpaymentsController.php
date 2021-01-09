@@ -6,10 +6,12 @@ use Yii;
 use frontend\modules\payments\models\Inpayments;
 use frontend\modules\payments\models\InpaymentsSearch;
 use frontend\modules\payments\models\Packregistration;
+use frontend\modules\payments\models\Packconfig;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\db\Exception;
+use yii\helpers\Json;
 
 /**
  * InpaymentsController implements the CRUD actions for Inpayments model.
@@ -45,6 +47,8 @@ class InpaymentsController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    
+    
 
     /**
      * Displays a single Inpayments model.
@@ -62,6 +66,9 @@ class InpaymentsController extends Controller
     public function actionPackregistration($member)
     {
          $session = Yii::$app->session;
+         ////
+         $memberDetails=Yii::$app->memberdetails;
+         /////
         $model = new Packregistration();
         $model->member = $member;
         $model->ptype = 1;
@@ -78,12 +85,21 @@ class InpaymentsController extends Controller
 
         return $this->render('packregistration', [
             'model' => $model,
+            /////
+            'memberDetails' => $memberDetails,
+            /////
         ]);
     }
     
     public function actionAwaitapproval()
     {
-         return $this->render('awaitapproval');
+        $model = new Packregistration();
+        $memberDetails = Yii::$app->memberdetails;
+         return $this->render('awaitapproval',
+                 [
+                     'model' => $model,
+                     'memberDetails'=>$memberDetails,
+                     ]);
     }
     
     /**
@@ -157,5 +173,14 @@ class InpaymentsController extends Controller
         }
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+    }
+    public function actionPackValue($packid,$ptype){
+        $model = Packconfig::find()
+                ->where([
+                    'packId'=>$packid,
+                    'trxType'=>$ptype
+                    ])
+                ->one();
+        echo Json::encode($model);
     }
 }

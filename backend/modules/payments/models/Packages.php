@@ -10,6 +10,8 @@ use Yii;
  * @property int $id
  * @property string $packName
  *
+ * @property Inpayments[] $inpayments
+ * @property Membershiphistory[] $membershiphistories
  * @property Packconfig[] $packconfigs
  */
 class Packages extends \yii\db\ActiveRecord
@@ -31,6 +33,7 @@ class Packages extends \yii\db\ActiveRecord
             [[ 'packName'], 'required'],
             [['id'], 'integer'],
             [['packName'], 'string', 'max' => 45],
+            [['id'], 'unique'],
         ];
     }
 
@@ -43,6 +46,26 @@ class Packages extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'packName' => Yii::t('app', 'Pack Name'),
         ];
+    }
+
+    /**
+     * Gets query for [[Inpayments]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getInpayments()
+    {
+        return $this->hasMany(Inpayments::className(), ['package' => 'id']);
+    }
+
+    /**
+     * Gets query for [[Membershiphistories]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMembershiphistories()
+    {
+        return $this->hasMany(Membershiphistory::className(), ['packageId' => 'id']);
     }
 
     /**

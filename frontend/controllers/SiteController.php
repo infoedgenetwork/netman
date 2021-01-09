@@ -79,6 +79,17 @@ class SiteController extends Controller
     }
 
     /**
+     * Displays events page.
+     *
+     * @return mixed
+     */
+    public function actionEvents()
+    {
+        return $this->render('events');
+    }
+
+    
+    /**
      * Logs in a user.
      *
      * @return mixed
@@ -97,7 +108,7 @@ class SiteController extends Controller
                 && !Yii::$app->memberdetails->isRegistered(Yii::$app->userdetails->getPersonId(Yii::$app->user->id))) {
                     return $this->redirect(['payments/inpayments/packregistration','member'=>Yii::$app->userdetails->getPersonId(Yii::$app->user->id)]);
         }elseif ($model->load(Yii::$app->request->post()) && $model->login() && !empty(Yii::$app->userdetails->getPersonId(Yii::$app->user->id)) 
-                && Yii::$app->memberdetails->isRegistered(Yii::$app->userdetails->getPersonId(Yii::$app->user->id),2)) {
+                && !Yii::$app->memberdetails->isRegistered(Yii::$app->userdetails->getPersonId(Yii::$app->user->id),2)) {
             return $this->redirect(['payments/inpayments/awaitapproval','member'=>Yii::$app->userdetails->getPersonId(Yii::$app->user->id)]);
         }elseif ($model->load(Yii::$app->request->post()) && $model->login() && !empty(Yii::$app->userdetails->getPersonId(Yii::$app->user->id))) {
             return $this->redirect(['dashboard/default/index']);
@@ -120,6 +131,10 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+    public function actionTermsandconditions()
+    {
+        return $this->render('termsandconditions');
     }
 
     /**
@@ -161,9 +176,9 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionProducts()
+    public function actionOpportunity()
     {
-        return $this->render('products');
+        return $this->render('opportunity');
     }
     
     /**
@@ -176,6 +191,15 @@ class SiteController extends Controller
         return $this->render('services');
     }
     
+    /**
+     * Displays services page.
+     *
+     * @return mixed
+     */
+    public function actionFaq()
+    {
+        return $this->render('faq');
+    }
     
     /**
      * Signs user up.

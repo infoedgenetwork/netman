@@ -74,7 +74,7 @@ class People extends \yii\db\ActiveRecord
             'identityNo' => Yii::t('app', 'Identity No'),
             'IdentityType' => Yii::t('app', 'Identity Type'),
             'nationality' => Yii::t('app', 'Nationality'),
-            'dob' => Yii::t('app', 'Dob'),
+            'dob' => Yii::t('app', 'Date of Birth'),
             'gender' => Yii::t('app', 'Gender'),
             'phoneNo' => Yii::t('app', 'Phone No'),
             'recordBy' => Yii::t('app', 'Record By'),

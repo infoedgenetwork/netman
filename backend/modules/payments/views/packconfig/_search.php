@@ -19,21 +19,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'packId') ?>
 
-    <?= $form->field($model, 'rankId') ?>
+    <?= $form->field($model, 'trxType') ?>
 
-    <?= $form->field($model, 'relevel') ?>
+    <?= $form->field($model, 'amount') ?>
 
-    <?= $form->field($model, 'cmpsntype') ?>
-
-    <?php // echo $form->field($model, 'recipientType') ?>
-
-    <?php // echo $form->field($model, 'units') ?>
-
-    <?php // echo $form->field($model, 'amount') ?>
-
-    <?php // echo $form->field($model, 'itemcntrl') ?>
-
-    <?php // echo $form->field($model, 'recordBy') ?>
+    <?= $form->field($model, 'recordBy') ?>
 
     <?php // echo $form->field($model, 'recordDate') ?>
 
